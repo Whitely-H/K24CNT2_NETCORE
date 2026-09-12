@@ -1,0 +1,46 @@
+﻿@model PxcLesson7Models.Models.DataModels.PxcMembers
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="card p-3">
+    <h1>Thêm mới thành viên</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create" method="post" asp-controller="PxcMember">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="PxcMembersId" class="control-label"></label>
+                    <input asp-for="PxcMembersId" class="form-control" />
+                    <span asp-validation-for="PxcMembersId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PxcUserName" class="control-label"></label>
+                    <input asp-for="PxcUserName" class="form-control" />
+                    <span asp-validation-for="PxcUserName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PxcPassword" class="control-label"></label>
+                    <input asp-for="PxcPassword" class="form-control" />
+                    <span asp-validation-for="PxcPassword" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PxcFullName" class="control-label"></label>
+                    <input asp-for="PxcFullName" class="form-control" />
+                    <span asp-validation-for="PxcFullName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PxcEmail" class="control-label"></label>
+                    <input asp-for="PxcEmail" class="form-control" />
+                    <span asp-validation-for="PxcEmail" class="text-danger"></span>
+                </div>
+                <div class="form-group my-2">
+                    <input type="submit" value="Ghi lại" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

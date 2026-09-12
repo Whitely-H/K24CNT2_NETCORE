@@ -1,0 +1,61 @@
+﻿@model IEnumerable<PxcLesson7Models.Models.DataModels.PxcMembers>
+
+@{
+    ViewData["Title"] = "Danh sách thành viên";
+}
+
+<div class="card p-3">
+    <h1>@ViewData["Title"]</h1>
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary my-1">Thêm mới</a>
+    </p>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PxcMembersId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PxcUserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PxcPassword)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PxcFullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PxcEmail)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PxcMembersId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PxcUserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PxcPassword)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PxcFullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PxcEmail)`
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

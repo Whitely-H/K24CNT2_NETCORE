@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Thông  tin member";
+    var member = Model as PxcLesson7Models.Models.DataModels.PxcMembers;
+}
+
+<div class="alert alert-info">
+    <h1>@ViewData["Title"]</h1>
+    @* <p>Member id: @ViewBag.Member.TvcMemberId</p>
+    <p>UserName: @ViewBag.Member.TvcUserName</p>
+    <p>UserName: @ViewBag.Member.TvcPassword</p>
+    <p>UserName: @ViewBag.Member.TvcFullName</p>
+    <p>UserName: @ViewBag.Member.TvcEmail</p> *@
+
+    <p>Memberid: @member.PxcMembersId</p>
+    <p>UserName: @member.PxcUserName</p>
+    <p>UserName: @member.PxcPassword</p>
+    <p>UserName: @member.PxcFullName</p>
+    <p>UserName: @member.PxcEmail</p>
+</div>
