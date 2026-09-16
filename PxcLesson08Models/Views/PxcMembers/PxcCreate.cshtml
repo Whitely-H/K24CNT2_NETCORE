@@ -1,59 +1,66 @@
-@model PxcLesson08Models.Models.PxcMembers
+﻿@model PxcLesson08Models.Models.PxcMembers
 
 @{
-    ViewData["Title"] = "PxcCreate";
+    ViewData["Title"] = "Thêm mới thành viên";
 }
-<div class="p-3">
-    <div class="card-header">
-        <h1>@ViewData["Title"]</h1>
-    </div>
 
-<h1>PxcCreate</h1>
+<div class="container my-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h3 class="card-title mb-0">@ViewData["Title"]</h3>
+        </div>
 
-<h4>PxcMembers</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form asp-action="PxcCreate" method="post">
+            <div class="card-body">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
-            <div class="form-group">
-                <label asp-for="PxcMembersId" class="control-label"></label>
-                <input asp-for="PxcMembersId" class="form-control" />
-                <span asp-validation-for="PxcMembersId" class="text-danger"></span>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label asp-for="PxcMembersId" class="form-label fw-bold"></label>
+                        <input asp-for="PxcMembersId" class="form-control" placeholder="Nhập mã thành viên..." />
+                        <span asp-validation-for="PxcMembersId" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="PxcUserName" class="form-label fw-bold"></label>
+                        <input asp-for="PxcUserName" class="form-control" placeholder="Nhập tên đăng nhập..." />
+                        <span asp-validation-for="PxcUserName" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="PxcPassword" class="form-label fw-bold"></label>
+                        <input asp-for="PxcPassword" type="password" class="form-control" placeholder="Nhập mật khẩu..." />
+                        <span asp-validation-for="PxcPassword" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="PxcFullname" class="form-label fw-bold"></label>
+                        <input asp-for="PxcFullname" class="form-control" placeholder="Nhập họ và tên..." />
+                        <span asp-validation-for="PxcFullname" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-12">
+                        <label asp-for="PxcEmail" class="form-label fw-bold"></label>
+                        <input asp-for="PxcEmail"  class="form-control" placeholder="example@domain.com" />
+                        <span asp-validation-for="PxcEmail" class="text-danger small"></span>
+                    </div>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label asp-for="PxcUserName" class="control-label"></label>
-                <input asp-for="PxcUserName" class="form-control" />
-                <span asp-validation-for="PxcUserName" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="PxcPassword" class="control-label"></label>
-                <input asp-for="PxcPassword" class="form-control" />
-                <span asp-validation-for="PxcPassword" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="PxcFullname" class="control-label"></label>
-                <input asp-for="PxcFullname" class="form-control" />
-                <span asp-validation-for="PxcFullname" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="PxcEmail" class="control-label"></label>
-                <input asp-for="PxcEmail" class="form-control" />
-                <span asp-validation-for="PxcEmail" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="card-footer bg-light d-flex gap-2">
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-save"></i> Thêm mới
+                </button>
+                <a asp-action="Index" class="btn btn-secondary">
+                    Quay lại danh sách
+                </a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

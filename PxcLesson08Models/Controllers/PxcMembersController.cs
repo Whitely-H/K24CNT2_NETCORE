@@ -61,5 +61,64 @@ namespace PxcLesson08Models.Controllers
             var members = new PxcMembers();
                return View();
         }
+        [HttpPost]
+        public IActionResult PxcCreate(PxcMembers pxcMembers)
+        {
+            pxcMembers.PxcMembersId= Guid.NewGuid().ToString();
+            _members.Add(pxcMembers);
+
+            return RedirectToAction("Index");
+            //return view (pxcmembers)
+        }
+        [HttpGet]
+        public IActionResult PxcEdit(string id)
+        {
+            var members = _members.Where(x=>x.PxcMembersId.Equals(id)).FirstOrDefault();
+            return View(members);
+        }
+        [HttpPost]
+        public IActionResult PxcEdit(string id, PxcMembers pxcMembers)
+        {
+            //var members = _members.Where(x => x.PxcMembersId.Equals(id)).FirstOrDefault();
+            for (int i = 0;i< _members.Count; i++)
+            {
+                if (_members[i].PxcMembersId == id)
+                {
+                    _members[i].PxcUserName = pxcMembers.PxcUserName;
+                    _members[i].PxcPassword = pxcMembers.PxcPassword;
+                    _members[i].PxcFullname = pxcMembers.PxcFullname;
+                    _members[i].PxcEmail = pxcMembers.PxcEmail;
+                    return RedirectToAction("Index");
+                }
+            }
+            return View();
+            
+            
+        }
+        [HttpGet]
+        public IActionResult PxcDetails(string id)
+        {
+            var members = _members.Where(x => x.PxcMembersId.Equals(id)).FirstOrDefault();
+            return View(members);
+        }
+        [HttpGet]
+        public IActionResult PxcDelete(string id)
+        {
+            var members = _members.Where(x => x.PxcMembersId.Equals(id)).FirstOrDefault();
+            return View(members);
+        }
+        [HttpPost]
+        public IActionResult PxcDeleted(string id)
+        {
+            foreach (var item in _members)
+            {
+                if (item.PxcMembersId.Equals(id))
+                {
+                    _members.Remove(item);
+                    return RedirectToAction("Index");
+                }
+            }
+            return View("PxcDelete");
+        }
     }
 }

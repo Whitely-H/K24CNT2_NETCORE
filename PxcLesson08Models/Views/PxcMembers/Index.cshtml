@@ -1,12 +1,12 @@
-@model IEnumerable<PxcLesson08Models.Models.PxcMembers>
+﻿@model IEnumerable<PxcLesson08Models.Models.PxcMembers>
 
 @{
-    ViewData["Title"] = "Danh s�ch th�nh vi�nnnn";
+    ViewData["Title"] = "Danh sách thành viênnnn";
 }
 <div class="card p-3">
     <div class="card-header">
         <h1>@ViewData["Title"]</h1>
-        <a asp-action="PxcCreate">Th�m M?i</a>
+        <a asp-action="PxcCreate">Thêm Mới</a>
     </div>
 
 <h1>Index</h1>
@@ -50,9 +50,9 @@
                             @Html.DisplayFor(model => item.PxcEmail)
                         </td>
                         <td>
-                            <a asp-action="Edit" asp-route-id="@item.PxcMembersId">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.PxcMembersId">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.PxcMembersId">Delete</a>
+                            @Html.ActionLink("Sửa", "PxcEdit", new { id = item.PxcMembersId }) |
+                            @Html.ActionLink("Xem chi tiết", "PxcDetails", new { id = item.PxcMembersId }) |
+                            @Html.ActionLink("Xóa", "PxcDelete", new { id = item.PxcMembersId })
                         </td>
                     </tr>
                 }
