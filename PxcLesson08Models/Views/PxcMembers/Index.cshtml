@@ -1,0 +1,62 @@
+@model IEnumerable<PxcLesson08Models.Models.PxcMembers>
+
+@{
+    ViewData["Title"] = "Danh sách thành viênnnn";
+}
+<div class="card p-3">
+    <div class="card-header">
+        <h1>@ViewData["Title"]</h1>
+        <a asp-action="PxcCreate">Thêm M?i</a>
+    </div>
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="card-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PxcUserName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PxcPassword)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PxcFullname)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PxcEmail)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(model => item.PxcUserName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.PxcPassword)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.PxcFullname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.PxcEmail)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.PxcMembersId">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.PxcMembersId">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.PxcMembersId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+</div>
+</div>
