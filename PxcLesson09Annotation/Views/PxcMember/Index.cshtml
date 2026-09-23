@@ -1,0 +1,65 @@
+@model IEnumerable<PxcLesson09Annotation.Models.DataModel.PxcMember>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PxcMemberName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PxcMemberPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PxcMemberEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PxcMemberPhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PxcMemberFullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PxcBirthday)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.PxcMemberName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.PxcMemberPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.PxcMemberEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.PxcMemberPhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.PxcMemberFullName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.PxcBirthday)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PxcMemberId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PxcMemberId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PxcMemberId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

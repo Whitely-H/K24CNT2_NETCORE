@@ -1,0 +1,60 @@
+﻿@model PxcLesson09Annotation.Models.DataModel.PxcMember
+
+@{
+    ViewData["Title"] = "Thêm Mới thành viên";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="PxcMemberName" class="control-label"></label>
+                <input asp-for="PxcMemberName" class="form-control" />
+                <span asp-validation-for="PxcMemberName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PxcMemberPassword" class="control-label"></label>
+                <input asp-for="PxcMemberPassword" class="form-control" />
+                <span asp-validation-for="PxcMemberPassword" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PxcMemberEmail" class="control-label"></label>
+                <input asp-for="PxcMemberEmail" class="form-control" />
+                <span asp-validation-for="PxcMemberEmail" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PxcMemberPhoneNumber" class="control-label"></label>
+                <input asp-for="PxcMemberPhoneNumber" class="form-control" />
+                <span asp-validation-for="PxcMemberPhoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PxcMemberFullName" class="control-label"></label>
+                <input asp-for="PxcMemberFullName" class="form-control" />
+                <span asp-validation-for="PxcMemberFullName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PxcBirthday" class="control-label"></label>
+                <input asp-for="PxcBirthday" class="form-control" />
+                <span asp-validation-for="PxcBirthday" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
