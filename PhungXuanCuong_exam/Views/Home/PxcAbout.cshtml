@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Thông tin sinh viên";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">Thông tin sinh viên</h3>
+        </div>
+
+        <div class="card-body">
+            <p>
+                <strong>Họ và tên:</strong>
+                @ViewBag.FullName
+            </p>
+
+            <p>
+                <strong>Mã sinh viên:</strong>
+                @ViewBag.StudentId
+            </p>
+
+            <p>
+                <strong>Lớp:</strong>
+                @ViewBag.ClassName
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                @ViewBag.Email
+            </p>
+        </div>
+    </div>
+</div>
