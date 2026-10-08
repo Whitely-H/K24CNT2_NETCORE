@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/css/PxcLayoutProduct.css" rel="stylesheet" />
+
+</head>
+<body>
+    <header class="container border my-2">
+       <div class="logo">
+            <img src="https://daihocnguyentrai.edu.vn/wp-content/uploads/2024/03/logo.png" alt="NTU" />
+       </div>
+    </header>
+    <nav class="container border my-2">
+        <ul>
+            <li><a asp-controller="PxcProducts" asp-action="Index">Danh sách Sản phẩm</a></li>
+            <li><a asp-controller="PxcProducts" asp-action="Search">Tìm kiếm</a></li>
+            <li><a asp-controller="PxcProducts" asp-action="Hots">Sản phẩm  bán chạy</a></li>
+            <li><a asp-controller="PxcProducts"
+                   asp-action="about">Giới thiệu"</a></li>
+        </ul>
+    </nav>
+    <section  class="main container border my-2">
+        @RenderBody()
+    </section>
+
+    <footer style="background-color: #303042; color:yellow; height:50px" class="border my-2">
+        <p class="text-center">&copy; 2026 </p>
+    </footer>
+
+    <script src="/js/PxcLayoutProducts.js"></script>
+</body>
+</html>
